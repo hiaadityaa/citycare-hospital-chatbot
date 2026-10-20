@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CityCare Hospital | AI Assistant</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f8fc;
+      color: #20364b;
+    }
+    header {
+      background: #086e89;
+      color: white;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    header h2 { margin: 0; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 18px;
+    }
+    .hero {
+      padding: 85px 8%;
+      background: linear-gradient(120deg, #087f9d, #164b79);
+      color: white;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 48px);
+      margin-bottom: 12px;
+    }
+    .hero p { max-width: 650px; line-height: 1.7; }
+    .section { padding: 55px 8%; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #00000012;
+    }
+    .card h3 { color: #087f9d; }
+    .notice {
+      background: #e5f3f8;
+      padding: 20px;
+      border-radius: 10px;
+      line-height: 1.6;
+    }
+    footer {
+      background: #20364b;
+      color: white;
+      padding: 25px 8%;
+      text-align: center;
+    }
+    :root {
+      --chat--color-primary: #087f9d;
+      --chat--color-primary-shade-50: #086e89;
+      --chat--color-primary-shade-100: #075b72;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2>🏥 CityCare Hospital</h2>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#assistant">AI Assistant</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to CityCare Hospital</h1>
+    <p>
+      Your health, our priority. Explore our demonstration
+      hospital services and get instant assistance with
+      common enquiries using our AI chatbot.
+    </p>
+  </section>
+
+  <section class="section" id="services">
+    <h2>How Can We Help You?</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>📅 Appointments</h3>
+        <p>Ask about booking, cancelling or rescheduling appointments.</p>
+      </div>
+      <div class="card">
+        <h3>👨‍⚕️ Doctor Information</h3>
+        <p>Enquire about specialties and hospital departments.</p>
+      </div>
+      <div class="card">
+        <h3>💳 Billing</h3>
+        <p>Get help with general billing and payment enquiries.</p>
+      </div>
+      <div class="card">
+        <h3>💻 Technical Support</h3>
+        <p>Report website, portal and technical issues.</p>
+      </div>
+      <div class="card">
+        <h3>🤝 Human Assistance</h3>
+        <p>Request guidance on contacting a human representative.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="assistant">
+    <h2>CityCare AI Assistant</h2>
+    <div class="notice">
+      Click the chat icon in the bottom-right corner to
+      ask a question about our hospital services.
+      <br><br>
+      <strong>Demo only:</strong> CityCare Hospital is a
+      fictional hospital for an educational assignment.
+      Do not enter personal, medical, or payment information.
+      No real appointments or payments are processed.
+      For medical emergencies, contact local emergency services.
+    </div>
+  </section>
+
+  <footer>
+    CityCare Hospital | AI Enquiry Routing Demo
+  </footer>
+
+  <script type="module">
+    import { createChat } from
+      'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'https://aadityaak.app.n8n.cloud/webhook/dda1639b-f443-484d-83cf-93fe24ddef6f/chat',
+      mode: 'window',
+      showWelcomeScreen: false,
+      initialMessages: [
+        'Welcome to CityCare Hospital! 👋',
+        "I'm your AI assistant. How can I help you today?"
+      ],
+      i18n: {
+        en: {
+          title: 'CityCare AI Assistant',
+          subtitle: 'Hospital enquiry support',
+          getStarted: 'Start Chat',
+          inputPlaceholder: 'Type your enquiry...'
+        }
+      }
+    });
+  </script>
+</body>
+</html>
